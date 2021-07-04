@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - 27017:27017
+    networks:
+      mongo-morelikethis-network:
+        aliases:
+          - mongo-net
+
+  morelikethis:
+    image: contactnkm/morelikethis
+    networks:
+      mongo-morelikethis-network:
+
+networks:
+  mongo-morelikethis-network:
+    name: mongo-morelikethis-network
