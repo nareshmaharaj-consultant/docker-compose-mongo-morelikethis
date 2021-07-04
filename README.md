@@ -13,4 +13,8 @@ Add some sample messages in the namespace ```product.items``` you can change thi
 In a new window
 <br><br>```docker run -it --rm --network mongo-morelikethis-network contactnkm/morelikethis bash```
 
+Produce sample messages
+<br><br>
+```mongodb-schema mongo-net:27017 product.items | morelikethis | mgeneratejs -n 100 | mongoimport --host mongo-net --port 27017 -d productmake -c items```
+
 
